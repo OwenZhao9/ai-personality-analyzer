@@ -14,3 +14,4 @@
 - [x] 添加发布到 iOS 的功能按钮（报告页底部 Banner + 弹窗）
 - [x] 修复 EAS Build iOS 构建失败（配置 eas.json 指定 Xcode 16 镜像）
 - [x] 修复 EAS Build iOS Read app config 阶段失败（Unknown error）
+- [x] 修复 EAS Build iOS FileSystemUtilities isReadableFile Swift 编译错误
