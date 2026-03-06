@@ -790,10 +790,7 @@ export default function ReportScreen() {
           <View style={styles.posterModalSheet}>
             <View style={styles.posterModalDragBar} />
             <View style={styles.posterModalHeader}>
-              <View style={styles.posterModalHeaderLeft}>
-                <View style={styles.posterModalHeaderDot} />
-                <Text style={styles.posterModalTitle}>分享分析结果</Text>
-              </View>
+              <View style={styles.posterModalHeaderLeft} />
               <Pressable
                 onPress={() => setShowPosterPreview(false)}
                 style={({ pressed }) => [styles.posterModalCloseBtn, pressed && { opacity: 0.6 }]}
