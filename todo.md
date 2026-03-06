@@ -17,3 +17,4 @@
 - [x] 修复 EAS Build iOS FileSystemUtilities isReadableFile Swift 编译错误
 - [x] 删除报告页面中的「发布到 iOS App Store」按钮
 - [x] 从海报中删除底部品牌信息和免责声明
+- [x] 重设计分享卡为「身份证」风格（姓名+MBTI+星座超大主视觉，去掉「海报」文字）

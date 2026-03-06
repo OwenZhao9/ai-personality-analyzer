@@ -430,179 +430,139 @@ const AI_MODELS = [
   { name: "通义千问", color: "#FF6A00" },
 ];
 
-// ─── Poster Component (rendered off-screen for capture) ───────────────────────
+// ─── Share Card Component (「身份证」风格) ──────────────────────────────────────
 function SharePoster({ userInfo, zodiac, age }: {
   userInfo: any;
   zodiac: string;
   age: number;
 }) {
-  const rows = [
-    { label: "姓名", value: userInfo.name, accent: true },
-    { label: "性别", value: userInfo.gender },
-    { label: "出生日期", value: userInfo.birthDate },
-    { label: "星座", value: zodiac, accent: true },
-    { label: "年龄", value: age > 0 ? `${age} 岁` : "" },
-    { label: "职业", value: userInfo.occupation },
-    { label: "兴趣爱好", value: userInfo.interests },
-    { label: "情感状态", value: userInfo.relationship },
-    { label: "MBTI", value: userInfo.mbti, accent: true },
-    { label: "当前困惑", value: userInfo.confusion },
-    { label: "自我介绍", value: userInfo.selfIntro },
-  ].filter((r) => r.value);
+  // 只取最关键的 4 个次要信息
+  const keyDetails = [
+    userInfo.occupation && { label: "职业", value: userInfo.occupation },
+    userInfo.relationship && { label: "情感", value: userInfo.relationship },
+    userInfo.interests && { label: "兴趣", value: userInfo.interests },
+    (age > 0) && { label: "年龄", value: `${age} 岁` },
+  ].filter(Boolean) as { label: string; value: string }[];
 
-  const displayModels = AI_MODELS.slice(0, 9);
+  const initials = userInfo.name ? userInfo.name.slice(-2) : "AI";
 
   return (
     <View style={posterStyles.wrapper}>
-      <View style={posterStyles.glowTopLeft} />
-      <View style={posterStyles.glowBottomRight} />
-      {Array.from({ length: 18 }).map((_, i) => (
-        <View key={i} style={[posterStyles.scanLine, { top: i * 40 }]} />
+      {/* 背景光晕 */}
+      <View style={posterStyles.glowTop} />
+      <View style={posterStyles.glowBottom} />
+      {/* 扫描线 */}
+      {Array.from({ length: 12 }).map((_, i) => (
+        <View key={i} style={[posterStyles.scanLine, { top: i * 55 }]} />
       ))}
-      <View style={posterStyles.topHeader}>
-        <View style={posterStyles.systemLabel}>
-          <View style={posterStyles.systemDot} />
-          <Text style={posterStyles.systemLabelText}>AI ANALYSIS SYSTEM</Text>
+
+      {/* 顶部系统标识 */}
+      <View style={posterStyles.topBar}>
+        <View style={posterStyles.topBarLeft}>
+          <View style={posterStyles.topDot} />
+          <Text style={posterStyles.topLabel}>AI PERSONALITY ANALYSIS</Text>
         </View>
-        <Text style={posterStyles.timestamp}>{new Date().toISOString().slice(0, 10)}</Text>
-      </View>
-      <View style={posterStyles.heroSection}>
-        <View style={posterStyles.heroBadge}>
-          <Text style={posterStyles.heroBadgeText}>FINAL REPORT</Text>
-        </View>
-        <Text style={posterStyles.heroTitle}>AI 多模型联合</Text>
-        <Text style={posterStyles.heroTitleAccent}>人格终局报告</Text>
-        {userInfo.name ? (
-          <View style={posterStyles.nameBox}>
-            <Text style={posterStyles.nameLabel}>分析对象</Text>
-            <Text style={posterStyles.nameValue}>{userInfo.name}</Text>
-            {zodiac ? (
-              <View style={posterStyles.zodiacBadge}>
-                <Text style={posterStyles.zodiacText}>{zodiac}</Text>
-              </View>
-            ) : null}
-          </View>
-        ) : null}
-        <View style={posterStyles.statsRow}>
-          <View style={posterStyles.statItem}>
-            <Text style={posterStyles.statNum}>25</Text>
-            <Text style={posterStyles.statLabel}>模型参与</Text>
-          </View>
-          <View style={posterStyles.statDivider} />
-          <View style={posterStyles.statItem}>
-            <Text style={posterStyles.statNum}>100%</Text>
-            <Text style={posterStyles.statLabel}>一致性指数</Text>
-          </View>
-          <View style={posterStyles.statDivider} />
-          <View style={posterStyles.statItem}>
-            <Text style={posterStyles.statNum}>4</Text>
-            <Text style={posterStyles.statLabel}>分析阶段</Text>
-          </View>
-        </View>
-      </View>
-      <View style={posterStyles.modelsSection}>
-        <Text style={posterStyles.modelsSectionLabel}>参与分析模型</Text>
-        <View style={posterStyles.modelsGrid}>
-          {displayModels.map((m, i) => (
-            <View key={i} style={[posterStyles.modelTag, { borderColor: m.color + "55" }]}>
-              <View style={[posterStyles.modelDot, { backgroundColor: m.color }]} />
-              <Text style={[posterStyles.modelName, { color: m.color }]}>{m.name}</Text>
-            </View>
-          ))}
-          <View style={[posterStyles.modelTag, { borderColor: "rgba(255,255,255,0.15)" }]}>
-            <Text style={posterStyles.modelMore}>+16 更多</Text>
-          </View>
-        </View>
-      </View>
-      <View style={posterStyles.dataSection}>
-        <View style={posterStyles.dataSectionHeader}>
-          <View style={posterStyles.dataSectionLine} />
-          <Text style={posterStyles.dataSectionTitle}>人格数据矩阵</Text>
-          <View style={posterStyles.dataSectionLine} />
-        </View>
-        <View style={posterStyles.dataGrid}>
-          {rows.map((r, i) => (
-            <View key={i} style={posterStyles.dataRow}>
-              <Text style={posterStyles.dataLabel}>{r.label}</Text>
-              <Text style={[posterStyles.dataValue, r.accent && posterStyles.dataValueAccent]}>
-                {r.value}
-              </Text>
-            </View>
-          ))}
-        </View>
-      </View>
-      <View style={posterStyles.verdictSection}>
-        <View style={posterStyles.verdictInner}>
-          <Text style={posterStyles.verdictIcon}>✓</Text>
-          <View style={{ flex: 1 }}>
-            <Text style={posterStyles.verdictTitle}>多模型一致确认</Text>
-            <Text style={posterStyles.verdictSub}>数据冲突：未发现　逻辑偏差：未发现</Text>
-          </View>
-          <View style={posterStyles.verdictBadge}>
-            <Text style={posterStyles.verdictBadgeText}>100%</Text>
-          </View>
-        </View>
+        <Text style={posterStyles.topDate}>{new Date().toISOString().slice(0, 10)}</Text>
       </View>
 
+      {/* 主视觉区：头像 + 姓名 */}
+      <View style={posterStyles.heroArea}>
+        <View style={posterStyles.avatarRing}>
+          <View style={posterStyles.avatar}>
+            <Text style={posterStyles.avatarText}>{initials}</Text>
+          </View>
+        </View>
+        <Text style={posterStyles.nameText}>{userInfo.name || "匿名"}</Text>
+        {userInfo.gender ? (
+          <Text style={posterStyles.genderText}>{userInfo.gender}</Text>
+        ) : null}
+      </View>
+
+      {/* 核心标签：MBTI + 星座 */}
+      <View style={posterStyles.badgeRow}>
+        {userInfo.mbti ? (
+          <View style={posterStyles.mbtiBadge}>
+            <Text style={posterStyles.mbtiLabel}>MBTI</Text>
+            <Text style={posterStyles.mbtiValue}>{userInfo.mbti}</Text>
+          </View>
+        ) : null}
+        {zodiac ? (
+          <View style={posterStyles.zodiacBadge}>
+            <Text style={posterStyles.zodiacLabel}>星座</Text>
+            <Text style={posterStyles.zodiacValue}>{zodiac}</Text>
+          </View>
+        ) : null}
+      </View>
+
+      {/* 分隔线 */}
+      <View style={posterStyles.dividerLine} />
+
+      {/* 次要信息网格 */}
+      {keyDetails.length > 0 ? (
+        <View style={posterStyles.detailGrid}>
+          {keyDetails.slice(0, 4).map((d, i) => (
+            <View key={i} style={posterStyles.detailItem}>
+              <Text style={posterStyles.detailLabel}>{d.label}</Text>
+              <Text style={posterStyles.detailValue} numberOfLines={1}>{d.value}</Text>
+            </View>
+          ))}
+        </View>
+      ) : null}
+
+      {/* 底部确认条 */}
+      <View style={posterStyles.confirmBar}>
+        <View style={posterStyles.confirmDot} />
+        <Text style={posterStyles.confirmText}>25 个模型联合分析 · 一致性 100%</Text>
+        <View style={posterStyles.confirmBadge}>
+          <Text style={posterStyles.confirmBadgeText}>✓</Text>
+        </View>
+      </View>
     </View>
   );
 }
 
 const posterStyles = StyleSheet.create({
-  wrapper: { width: 375, backgroundColor: "#060A14", overflow: "hidden", position: "relative" },
-  glowTopLeft: { position: "absolute", top: -60, left: -60, width: 220, height: 220, borderRadius: 110, backgroundColor: "rgba(0,212,255,0.06)" },
-  glowBottomRight: { position: "absolute", bottom: -40, right: -40, width: 180, height: 180, borderRadius: 90, backgroundColor: "rgba(124,58,237,0.07)" },
-  scanLine: { position: "absolute", left: 0, right: 0, height: 1, backgroundColor: "rgba(0,212,255,0.025)" },
-  topHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, paddingTop: 18, paddingBottom: 12, borderBottomWidth: 1, borderBottomColor: "rgba(0,212,255,0.1)" },
-  systemLabel: { flexDirection: "row", alignItems: "center", gap: 6 },
-  systemDot: { width: 5, height: 5, borderRadius: 2.5, backgroundColor: "rgba(0,212,255,0.85)" },
-  systemLabelText: { color: "rgba(0,212,255,0.85)", fontSize: 9, fontWeight: "700", letterSpacing: 3 },
-  timestamp: { color: "rgba(0,212,255,0.4)", fontSize: 9, letterSpacing: 1.2, fontWeight: "500" },
-  heroSection: { alignItems: "center", paddingHorizontal: 24, paddingTop: 24, paddingBottom: 20, position: "relative" },
-  heroBadge: { backgroundColor: "rgba(0,212,255,0.08)", borderWidth: 1, borderColor: "rgba(0,212,255,0.22)", borderRadius: 20, paddingHorizontal: 14, paddingVertical: 4, marginBottom: 12 },
-  heroBadgeText: { color: "rgba(0,212,255,0.9)", fontSize: 9, fontWeight: "700", letterSpacing: 3.5 },
-  heroTitle: { color: "#7A8FA6", fontSize: 18, fontWeight: "700", letterSpacing: 2, textAlign: "center" },
-  heroTitleAccent: { color: "#E8EEF4", fontSize: 26, fontWeight: "700", letterSpacing: 2, textAlign: "center", marginBottom: 16 },
-  nameBox: { alignItems: "center", gap: 4, marginBottom: 16 },
-  nameLabel: { color: "#3D5068", fontSize: 10, letterSpacing: 2 },
-  nameValue: { color: "#D8E4F0", fontSize: 22, fontWeight: "700", letterSpacing: 2 },
-  zodiacBadge: { backgroundColor: "rgba(0,212,255,0.08)", borderWidth: 1, borderColor: "rgba(0,212,255,0.2)", borderRadius: 12, paddingHorizontal: 10, paddingVertical: 3 },
-  zodiacText: { color: "rgba(0,212,255,0.85)", fontSize: 11, fontWeight: "600", letterSpacing: 1 },
-  statsRow: { flexDirection: "row", alignItems: "center", gap: 0 },
-  statItem: { flex: 1, alignItems: "center", gap: 3 },
-  statNum: { color: "#D8E4F0", fontSize: 20, fontWeight: "700", letterSpacing: 1 },
-  statLabel: { color: "#3D5068", fontSize: 9, letterSpacing: 0.8 },
-  statDivider: { width: 1, height: 28, backgroundColor: "rgba(255,255,255,0.06)" },
-  modelsSection: { paddingHorizontal: 20, paddingVertical: 14, borderTopWidth: 1, borderTopColor: "rgba(255,255,255,0.05)" },
-  modelsSectionLabel: { color: "#3D5068", fontSize: 9, letterSpacing: 2.5, marginBottom: 8 },
-  modelsGrid: { flexDirection: "row", flexWrap: "wrap", gap: 5 },
-  modelTag: { flexDirection: "row", alignItems: "center", gap: 4, borderWidth: 1, borderRadius: 6, paddingHorizontal: 7, paddingVertical: 3 },
-  modelDot: { width: 4, height: 4, borderRadius: 2 },
-  modelName: { fontSize: 9, fontWeight: "600", letterSpacing: 0.3 },
-  modelMore: { color: "rgba(255,255,255,0.25)", fontSize: 9, fontWeight: "600" },
-  dataSection: { paddingHorizontal: 20, paddingVertical: 14, borderTopWidth: 1, borderTopColor: "rgba(255,255,255,0.05)" },
-  dataSectionHeader: { flexDirection: "row", alignItems: "center", gap: 8, marginBottom: 10 },
-  dataSectionLine: { flex: 1, height: 1, backgroundColor: "rgba(255,255,255,0.05)" },
-  dataSectionTitle: { color: "#3D5068", fontSize: 9, letterSpacing: 2.5 },
-  dataGrid: { gap: 6 },
-  dataRow: { flexDirection: "row", alignItems: "flex-start", gap: 8 },
-  dataLabel: { color: "#3D5068", fontSize: 11, width: 72, lineHeight: 17, letterSpacing: 0.3 },
-  dataValue: { color: "#7A8FA6", fontSize: 12, fontWeight: "500", flex: 1, lineHeight: 17, letterSpacing: 0.3 },
-  dataValueAccent: { color: "#B8C8D8", fontWeight: "600" },
-  verdictSection: { paddingHorizontal: 20, paddingVertical: 12, borderTopWidth: 1, borderTopColor: "rgba(255,255,255,0.05)" },
-  verdictInner: { flexDirection: "row", alignItems: "center", gap: 10, backgroundColor: "rgba(16,185,129,0.04)", borderWidth: 1, borderColor: "rgba(16,185,129,0.15)", borderRadius: 10, padding: 12 },
-  verdictIcon: { color: "rgba(16,185,129,0.85)", fontSize: 18, fontWeight: "600" },
-  verdictTitle: { color: "rgba(16,185,129,0.85)", fontSize: 12, fontWeight: "600", letterSpacing: 0.8 },
-  verdictSub: { color: "#3D5068", fontSize: 10, marginTop: 2, letterSpacing: 0.5 },
-  verdictBadge: { backgroundColor: "rgba(16,185,129,0.1)", borderRadius: 8, paddingHorizontal: 10, paddingVertical: 6 },
-  verdictBadgeText: { color: "rgba(16,185,129,0.9)", fontSize: 14, fontWeight: "700", letterSpacing: 0.5 },
-  footer: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 20, paddingVertical: 14, gap: 12 },
-  footerLeft: { flex: 1, gap: 3 },
-  footerBrand: { color: "#4A6070", fontSize: 10, fontWeight: "600", letterSpacing: 0.8 },
-  footerDisclaimer: { color: "#2D3F52", fontSize: 9, letterSpacing: 0.5 },
-  footerQR: { alignItems: "center", justifyContent: "center" },
-  qrBox: { width: 36, height: 36, borderRadius: 6, borderWidth: 1.5, borderColor: "rgba(0,212,255,0.3)", backgroundColor: "rgba(0,212,255,0.06)", alignItems: "center", justifyContent: "center" },
-  qrText: { color: "#00D4FF", fontSize: 10, fontWeight: "800", letterSpacing: 0.5 },
+  // 外层容器
+  wrapper: { width: 375, backgroundColor: "#060A14", overflow: "hidden", position: "relative", paddingBottom: 28 },
+  // 背景光晕
+  glowTop: { position: "absolute", top: -80, left: "50%", marginLeft: -120, width: 240, height: 240, borderRadius: 120, backgroundColor: "rgba(0,212,255,0.07)" },
+  glowBottom: { position: "absolute", bottom: -60, right: -40, width: 200, height: 200, borderRadius: 100, backgroundColor: "rgba(124,58,237,0.08)" },
+  // 扫描线
+  scanLine: { position: "absolute", left: 0, right: 0, height: 1, backgroundColor: "rgba(0,212,255,0.022)" },
+  // 顶部标识栏
+  topBar: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, paddingTop: 18, paddingBottom: 14, borderBottomWidth: 1, borderBottomColor: "rgba(0,212,255,0.08)" },
+  topBarLeft: { flexDirection: "row", alignItems: "center", gap: 6 },
+  topDot: { width: 5, height: 5, borderRadius: 2.5, backgroundColor: "rgba(0,212,255,0.9)" },
+  topLabel: { color: "rgba(0,212,255,0.75)", fontSize: 9, fontWeight: "700", letterSpacing: 2.5 },
+  topDate: { color: "rgba(0,212,255,0.35)", fontSize: 9, letterSpacing: 1 },
+  // 主视觉区
+  heroArea: { alignItems: "center", paddingTop: 36, paddingBottom: 24, gap: 12 },
+  avatarRing: { width: 96, height: 96, borderRadius: 48, borderWidth: 1.5, borderColor: "rgba(0,212,255,0.35)", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(0,212,255,0.04)" },
+  avatar: { width: 80, height: 80, borderRadius: 40, backgroundColor: "rgba(0,212,255,0.1)", alignItems: "center", justifyContent: "center" },
+  avatarText: { color: "#00D4FF", fontSize: 28, fontWeight: "700", letterSpacing: 2 },
+  nameText: { color: "#E8EEF4", fontSize: 34, fontWeight: "700", letterSpacing: 3, textAlign: "center" },
+  genderText: { color: "#4A6070", fontSize: 13, letterSpacing: 2, textAlign: "center" },
+  // MBTI + 星座强调强强强
+  badgeRow: { flexDirection: "row", justifyContent: "center", gap: 14, paddingHorizontal: 24, paddingBottom: 28 },
+  mbtiBadge: { flex: 1, alignItems: "center", backgroundColor: "rgba(0,212,255,0.06)", borderWidth: 1.5, borderColor: "rgba(0,212,255,0.3)", borderRadius: 16, paddingVertical: 14, gap: 4 },
+  mbtiLabel: { color: "rgba(0,212,255,0.5)", fontSize: 9, fontWeight: "700", letterSpacing: 3 },
+  mbtiValue: { color: "#00D4FF", fontSize: 28, fontWeight: "800", letterSpacing: 4 },
+  zodiacBadge: { flex: 1, alignItems: "center", backgroundColor: "rgba(124,58,237,0.06)", borderWidth: 1.5, borderColor: "rgba(124,58,237,0.35)", borderRadius: 16, paddingVertical: 14, gap: 4 },
+  zodiacLabel: { color: "rgba(167,139,250,0.55)", fontSize: 9, fontWeight: "700", letterSpacing: 3 },
+  zodiacValue: { color: "#A78BFA", fontSize: 28, fontWeight: "800", letterSpacing: 2 },
+  // 分隔线
+  dividerLine: { height: 1, backgroundColor: "rgba(255,255,255,0.05)", marginHorizontal: 20, marginBottom: 20 },
+  // 次要信息网格
+  detailGrid: { flexDirection: "row", flexWrap: "wrap", paddingHorizontal: 20, gap: 10, marginBottom: 24 },
+  detailItem: { width: "47%", backgroundColor: "rgba(255,255,255,0.03)", borderWidth: 1, borderColor: "rgba(255,255,255,0.06)", borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, gap: 4 },
+  detailLabel: { color: "#3D5068", fontSize: 10, letterSpacing: 1.5 },
+  detailValue: { color: "#8FA8C0", fontSize: 14, fontWeight: "600", letterSpacing: 0.5 },
+  // 底部确认条
+  confirmBar: { flexDirection: "row", alignItems: "center", gap: 8, marginHorizontal: 20, backgroundColor: "rgba(16,185,129,0.05)", borderWidth: 1, borderColor: "rgba(16,185,129,0.18)", borderRadius: 12, paddingHorizontal: 14, paddingVertical: 11 },
+  confirmDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: "rgba(16,185,129,0.85)" },
+  confirmText: { flex: 1, color: "rgba(16,185,129,0.75)", fontSize: 11, fontWeight: "500", letterSpacing: 0.5 },
+  confirmBadge: { backgroundColor: "rgba(16,185,129,0.12)", borderRadius: 8, width: 26, height: 26, alignItems: "center", justifyContent: "center" },
+  confirmBadgeText: { color: "rgba(16,185,129,0.9)", fontSize: 14, fontWeight: "700" },
 });
 
 // ─── Main Screen ──────────────────────────────────────────────────────────────
@@ -850,7 +810,7 @@ export default function ReportScreen() {
             <View style={styles.posterModalHeader}>
               <View style={styles.posterModalHeaderLeft}>
                 <View style={styles.posterModalHeaderDot} />
-                <Text style={styles.posterModalTitle}>AI 人格海报</Text>
+                <Text style={styles.posterModalTitle}>分享分析结果</Text>
               </View>
               <Pressable
                 onPress={() => setShowPosterPreview(false)}
@@ -877,7 +837,7 @@ export default function ReportScreen() {
             <View style={styles.posterModalActions}>
               {saveSuccess && (
                 <View style={styles.saveSuccessHint}>
-                  <Text style={styles.saveSuccessText}>✓ 海报已保存到相册</Text>
+                  <Text style={styles.saveSuccessText}>✓ 已保存到相册</Text>
                 </View>
               )}
               <Pressable
