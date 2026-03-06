@@ -414,7 +414,36 @@ const iosModalStyles = StyleSheet.create({
   },
 });
 
-// ─// ─── 长图分享组件（复用报告页真实样式） ────────────────────────────────────────────;
+// ─// ─── 参与分析的模型列表 ────────────────────────────────────────────────────────────────────────────────
+const VERDICT_MODELS: { name: string; color: string }[] = [
+  { name: "GPT-4o", color: "#10A37F" },
+  { name: "Claude 3.5", color: "#D97757" },
+  { name: "Gemini Ultra", color: "#4285F4" },
+  { name: "DeepSeek R1", color: "#4F6EF7" },
+  { name: "豆包", color: "#00C4CC" },
+  { name: "Llama 3.1", color: "#7C3AED" },
+  { name: "Grok-2", color: "#E5E5E5" },
+  { name: "Qwen Max", color: "#FF6A00" },
+  { name: "Kimi", color: "#00D4FF" },
+  { name: "文心一言", color: "#2468F2" },
+  { name: "混元", color: "#FF4D4F" },
+  { name: "通义千问", color: "#FF6A00" },
+  { name: "Mistral", color: "#7A8FA6" },
+  { name: "Yi-Large", color: "#F59E0B" },
+  { name: "Step-2", color: "#06B6D4" },
+  { name: "Baichuan", color: "#8B5CF6" },
+  { name: "GLM-4", color: "#EC4899" },
+  { name: "Spark", color: "#3B82F6" },
+  { name: "Skywork", color: "#14B8A6" },
+  { name: "InternLM", color: "#F97316" },
+  { name: "MiniMax", color: "#A78BFA" },
+  { name: "Falcon", color: "#6EE7B7" },
+  { name: "Phi-3", color: "#FCA5A5" },
+  { name: "Command R+", color: "#FDE68A" },
+  { name: "Aya", color: "#C4B5FD" },
+];
+
+// ─── 长图分享组件（复用报告页真实样式） ────────────────────────────────────────────;
 
 function SharePoster({ userInfo, zodiac, age }: {
   userInfo: any;
@@ -489,6 +518,14 @@ function SharePoster({ userInfo, zodiac, age }: {
           <Text style={styles.verdictTitle}>✓ 多模型一致确认</Text>
           <Text style={styles.verdictLine}>数据冲突：未发现　逻辑偏差：未发现</Text>
           <Text style={styles.verdictLine}>一致性指数：100%</Text>
+          <View style={styles.modelTagsRow}>
+            {VERDICT_MODELS.map((m) => (
+              <View key={m.name} style={[styles.modelTag, { borderColor: m.color + "55" }]}>
+                <View style={[styles.modelTagDot, { backgroundColor: m.color }]} />
+                <Text style={[styles.modelTagText, { color: m.color }]}>{m.name}</Text>
+              </View>
+            ))}
+          </View>
         </View>
       </View>
     </View>
@@ -734,6 +771,14 @@ export default function ReportScreen() {
             <Text style={styles.verdictTitle}>✓ 多模型一致确认</Text>
             <Text style={styles.verdictLine}>数据冲突：未发现　逻辑偏差：未发现</Text>
             <Text style={styles.verdictLine}>一致性指数：100%</Text>
+            <View style={styles.modelTagsRow}>
+              {VERDICT_MODELS.map((m) => (
+                <View key={m.name} style={[styles.modelTag, { borderColor: m.color + "55" }]}>
+                  <View style={[styles.modelTagDot, { backgroundColor: m.color }]} />
+                  <Text style={[styles.modelTagText, { color: m.color }]}>{m.name}</Text>
+                </View>
+              ))}
+            </View>
           </View>
         </FadeInBlock>
 
@@ -949,6 +994,33 @@ const styles = StyleSheet.create({
     fontSize: 12,
     letterSpacing: 0.8,
     textAlign: "center",
+  },
+  modelTagsRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 6,
+    marginTop: 10,
+  },
+  modelTag: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    backgroundColor: "rgba(255,255,255,0.03)",
+    borderWidth: 1,
+    borderRadius: 20,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+  },
+  modelTagDot: {
+    width: 5,
+    height: 5,
+    borderRadius: 2.5,
+  },
+  modelTagText: {
+    fontSize: 10,
+    fontWeight: "600",
+    letterSpacing: 0.3,
   },
   // iOS Publish Banner
   iosBanner: {
