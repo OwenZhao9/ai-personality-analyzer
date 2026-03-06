@@ -414,107 +414,81 @@ const iosModalStyles = StyleSheet.create({
   },
 });
 
-// ─── AI Model Tags for poster ─────────────────────────────────────────────────
-const AI_MODELS = [
-  { name: "GPT-4o", color: "#10A37F" },
-  { name: "Claude 3.5", color: "#D97757" },
-  { name: "Gemini Ultra", color: "#4285F4" },
-  { name: "DeepSeek R1", color: "#4F6EF7" },
-  { name: "豆包", color: "#00C4CC" },
-  { name: "Llama 3.1", color: "#7C3AED" },
-  { name: "Grok-2", color: "#E5E5E5" },
-  { name: "Qwen Max", color: "#FF6A00" },
-  { name: "Kimi", color: "#00D4FF" },
-  { name: "文心一言", color: "#2468F2" },
-  { name: "混元", color: "#FF4D4F" },
-  { name: "通义千问", color: "#FF6A00" },
-];
+// ─// ─── 长图分享组件（复用报告页真实样式） ────────────────────────────────────────────;
 
-// ─── Share Card Component (「身份证」风格) ──────────────────────────────────────
 function SharePoster({ userInfo, zodiac, age }: {
   userInfo: any;
   zodiac: string;
   age: number;
 }) {
-  // 只取最关键的 4 个次要信息
-  const keyDetails = [
-    userInfo.occupation && { label: "职业", value: userInfo.occupation },
-    userInfo.relationship && { label: "情感", value: userInfo.relationship },
-    userInfo.interests && { label: "兴趣", value: userInfo.interests },
-    (age > 0) && { label: "年龄", value: `${age} 岁` },
-  ].filter(Boolean) as { label: string; value: string }[];
+  // 数据行列表（不用动画，直接渲染）
+  function StaticRow({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
+    if (!value) return null;
+    return (
+      <View style={styles.row}>
+        <Text style={styles.rowLabel}>{label}</Text>
+        <Text style={[styles.rowValue, accent && styles.rowValueAccent]}>{value}</Text>
+      </View>
+    );
+  }
+  function StaticDivider() {
+    return <View style={styles.divider} />;
+  }
 
-  const initials = userInfo.name ? userInfo.name.slice(-2) : "AI";
+  const hasBasic = userInfo.occupation || userInfo.interests || userInfo.relationship;
+  const hasExtra = userInfo.mbti || userInfo.confusion || userInfo.selfIntro;
 
   return (
-    <View style={posterStyles.wrapper}>
-      {/* 背景光晕 */}
-      <View style={posterStyles.glowTop} />
-      <View style={posterStyles.glowBottom} />
-      {/* 扫描线 */}
-      {Array.from({ length: 12 }).map((_, i) => (
-        <View key={i} style={[posterStyles.scanLine, { top: i * 55 }]} />
-      ))}
-
-      {/* 顶部系统标识 */}
-      <View style={posterStyles.topBar}>
-        <View style={posterStyles.topBarLeft}>
-          <View style={posterStyles.topDot} />
-          <Text style={posterStyles.topLabel}>AI PERSONALITY ANALYSIS</Text>
+    <View style={posterStyles.longWrapper}>
+      {/* 顶部标识栏 */}
+      <View style={posterStyles.longTopBar}>
+        <View style={posterStyles.longTopLeft}>
+          <View style={posterStyles.longTopDot} />
+          <Text style={posterStyles.longTopLabel}>AI PERSONALITY ANALYSIS</Text>
         </View>
-        <Text style={posterStyles.topDate}>{new Date().toISOString().slice(0, 10)}</Text>
+        <Text style={posterStyles.longTopDate}>{new Date().toISOString().slice(0, 10)}</Text>
       </View>
 
-      {/* 主视觉区：头像 + 姓名 */}
-      <View style={posterStyles.heroArea}>
-        <View style={posterStyles.avatarRing}>
-          <View style={posterStyles.avatar}>
-            <Text style={posterStyles.avatarText}>{initials}</Text>
-          </View>
+      {/* 标题区（与报告页一致） */}
+      <View style={[styles.header, { borderBottomWidth: 0 }]}>
+        <View style={styles.headerBadge}>
+          <Text style={styles.headerBadgeText}>FINAL REPORT</Text>
         </View>
-        <Text style={posterStyles.nameText}>{userInfo.name || "匿名"}</Text>
-        {userInfo.gender ? (
-          <Text style={posterStyles.genderText}>{userInfo.gender}</Text>
-        ) : null}
+        <Text style={styles.headerTitle}>多模型联合人格终局报告</Text>
+        <Text style={styles.headerSub}>25 个顶级大模型联合分析 · 一致性指数 100%</Text>
       </View>
 
-      {/* 核心标签：MBTI + 星座 */}
-      <View style={posterStyles.badgeRow}>
-        {userInfo.mbti ? (
-          <View style={posterStyles.mbtiBadge}>
-            <Text style={posterStyles.mbtiLabel}>MBTI</Text>
-            <Text style={posterStyles.mbtiValue}>{userInfo.mbti}</Text>
-          </View>
-        ) : null}
-        {zodiac ? (
-          <View style={posterStyles.zodiacBadge}>
-            <Text style={posterStyles.zodiacLabel}>星座</Text>
-            <Text style={posterStyles.zodiacValue}>{zodiac}</Text>
-          </View>
-        ) : null}
-      </View>
-
-      {/* 分隔线 */}
-      <View style={posterStyles.dividerLine} />
-
-      {/* 次要信息网格 */}
-      {keyDetails.length > 0 ? (
-        <View style={posterStyles.detailGrid}>
-          {keyDetails.slice(0, 4).map((d, i) => (
-            <View key={i} style={posterStyles.detailItem}>
-              <Text style={posterStyles.detailLabel}>{d.label}</Text>
-              <Text style={posterStyles.detailValue} numberOfLines={1}>{d.value}</Text>
-            </View>
-          ))}
+      {/* 数据卡片 */}
+      <View style={[posterStyles.longContent]}>
+        <View style={styles.card}>
+          <StaticRow label="你的名字" value={userInfo.name} accent />
+          <StaticRow label="你的性别" value={userInfo.gender} />
+          <StaticRow label="你的出生日期" value={userInfo.birthDate} />
+          <StaticRow label="你的星座" value={zodiac} accent />
+          <StaticRow label="你的年龄" value={age > 0 ? `${age} 岁` : ""} accent />
+          {hasBasic ? (
+            <>
+              <StaticDivider />
+              <StaticRow label="你的职业" value={userInfo.occupation} />
+              <StaticRow label="你的兴趣爱好" value={userInfo.interests} />
+              <StaticRow label="你的情感状态" value={userInfo.relationship} />
+            </>
+          ) : null}
+          {hasExtra ? (
+            <>
+              <StaticDivider />
+              <StaticRow label="你的 MBTI" value={userInfo.mbti} />
+              <StaticRow label="你当前的困惑" value={userInfo.confusion} />
+              <StaticRow label="你的自我介绍" value={userInfo.selfIntro} />
+            </>
+          ) : null}
         </View>
-      ) : null}
 
-      {/* 底部确认条 */}
-      <View style={posterStyles.confirmBar}>
-        <View style={posterStyles.confirmDot} />
-        <Text style={posterStyles.confirmText}>25 个模型联合分析 · 一致性 100%</Text>
-        <View style={posterStyles.confirmBadge}>
-          <Text style={posterStyles.confirmBadgeText}>✓</Text>
+        {/* Verdict */}
+        <View style={styles.verdictBox}>
+          <Text style={styles.verdictTitle}>✓ 多模型一致确认</Text>
+          <Text style={styles.verdictLine}>数据冲突：未发现　逻辑偏差：未发现</Text>
+          <Text style={styles.verdictLine}>一致性指数：100%</Text>
         </View>
       </View>
     </View>
@@ -522,7 +496,15 @@ function SharePoster({ userInfo, zodiac, age }: {
 }
 
 const posterStyles = StyleSheet.create({
-  // 外层容器
+  // 长图外层容器
+  longWrapper: { width: 375, backgroundColor: "#060A14", paddingBottom: 32 },
+  longTopBar: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, paddingTop: 16, paddingBottom: 12, borderBottomWidth: 1, borderBottomColor: "rgba(0,212,255,0.08)" },
+  longTopLeft: { flexDirection: "row", alignItems: "center", gap: 6 },
+  longTopDot: { width: 5, height: 5, borderRadius: 2.5, backgroundColor: "rgba(0,212,255,0.9)" },
+  longTopLabel: { color: "rgba(0,212,255,0.75)", fontSize: 9, fontWeight: "700", letterSpacing: 2.5 },
+  longTopDate: { color: "rgba(0,212,255,0.35)", fontSize: 9, letterSpacing: 1 },
+  longContent: { paddingHorizontal: 20, paddingTop: 8, paddingBottom: 8, gap: 14 },
+  // 旧外层容器（保留以备用）
   wrapper: { width: 375, backgroundColor: "#060A14", overflow: "hidden", position: "relative", paddingBottom: 28 },
   // 背景光晕
   glowTop: { position: "absolute", top: -80, left: "50%", marginLeft: -120, width: 240, height: 240, borderRadius: 120, backgroundColor: "rgba(0,212,255,0.07)" },
@@ -775,7 +757,7 @@ export default function ReportScreen() {
             {isGenerating ? (
               <ActivityIndicator color="#060A14" size="small" />
             ) : (
-              <Text style={styles.shareBtnText}>生成海报并分享</Text>
+              <Text style={styles.shareBtnText}>生成长图并分享</Text>
             )}
           </Pressable>
           <Pressable
