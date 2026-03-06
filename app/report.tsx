@@ -543,17 +543,7 @@ function SharePoster({ userInfo, zodiac, age }: {
           </View>
         </View>
       </View>
-      <View style={posterStyles.footer}>
-        <View style={posterStyles.footerLeft}>
-          <Text style={posterStyles.footerBrand}>AI 多模型联合人格分析系统</Text>
-          <Text style={posterStyles.footerDisclaimer}>本报告所有内容均来自用户输入信息</Text>
-        </View>
-        <View style={posterStyles.footerQR}>
-          <View style={posterStyles.qrBox}>
-            <Text style={posterStyles.qrText}>AI</Text>
-          </View>
-        </View>
-      </View>
+
     </View>
   );
 }
