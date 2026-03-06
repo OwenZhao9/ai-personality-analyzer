@@ -624,7 +624,7 @@ export default function ReportScreen() {
   const age = getAge(userInfo.birthDate);
 
   const [showTruth, setShowTruth] = useState(false);
-  const [showPublishIOS, setShowPublishIOS] = useState(false);
+
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [showPosterPreview, setShowPosterPreview] = useState(false);
@@ -737,12 +737,7 @@ export default function ReportScreen() {
     router.push("/" as any);
   };
 
-  const handlePublishIOS = () => {
-    if (Platform.OS !== "web") {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    }
-    setShowPublishIOS(true);
-  };
+
 
   const baseDelay = 150;
   let rowIndex = 0;
@@ -810,25 +805,7 @@ export default function ReportScreen() {
           </View>
         </FadeInBlock>
 
-        {/* iOS Publish Banner */}
-        <FadeInBlock delay={baseDelay + rowIndex * 90 + 200}>
-          <Pressable
-            onPress={handlePublishIOS}
-            style={({ pressed }) => [
-              styles.iosBanner,
-              pressed && { opacity: 0.85, transform: [{ scale: 0.98 }] },
-            ]}
-          >
-            <View style={styles.iosBannerLeft}>
-              <Text style={styles.iosBannerIcon}></Text>
-              <View>
-                <Text style={styles.iosBannerTitle}>发布到 iOS App Store</Text>
-                <Text style={styles.iosBannerSub}>通过 Expo EAS 构建并发布你的应用</Text>
-              </View>
-            </View>
-            <Text style={styles.iosBannerArrow}>›</Text>
-          </Pressable>
-        </FadeInBlock>
+
 
         <View style={{ height: 110 }} />
       </ScrollView>
@@ -935,9 +912,6 @@ export default function ReportScreen() {
 
       {/* Truth Mode Modal */}
       <TruthModeModal visible={showTruth} onClose={() => setShowTruth(false)} />
-
-      {/* iOS Publish Modal */}
-      <PublishIOSModal visible={showPublishIOS} onClose={() => setShowPublishIOS(false)} />
     </ScreenContainer>
   );
 }

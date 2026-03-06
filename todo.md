@@ -15,3 +15,4 @@
 - [x] 修复 EAS Build iOS 构建失败（配置 eas.json 指定 Xcode 16 镜像）
 - [x] 修复 EAS Build iOS Read app config 阶段失败（Unknown error）
 - [x] 修复 EAS Build iOS FileSystemUtilities isReadableFile Swift 编译错误
+- [x] 删除报告页面中的「发布到 iOS App Store」按钮
