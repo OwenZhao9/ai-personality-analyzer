@@ -9,101 +9,70 @@ title: Privacy Policy
 
 ## Overview
 
-Welcome to **AI Personality Analyzer** (the "App"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, protect, and handle your data.
+Welcome to **AI Personality Analyzer** (the "App"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we handle your data.
 
 ## 1. Data Collection
 
-### What We Collect
+**We do NOT collect any information.**
 
-The App only collects information that you voluntarily provide:
+The App does not collect, store, or transmit any personal data to our servers. All information you enter is processed locally on your device only.
 
-- **Basic Information**: Name, Gender, Birth Date
-- **Personal Details**: Occupation, Interests, Emotional Status, MBTI Type, Current Challenges, Self-Introduction
+## 2. Local Data Storage
 
-### How We Collect
+- **All data remains on your device** – nothing is uploaded to servers or cloud storage
+- Data is stored using your device's local storage mechanisms
+- You have full control over your data and can delete it anytime
 
-All data is entered directly through the App's user interface and is completely under your control.
+## 3. Data Processing
 
-## 2. Data Storage & Processing
+When you use the App's analysis features:
 
-### Local Storage
+- Data is processed locally on your device
+- No personal information is sent to external servers
+- Analysis results are generated and stored only on your device
 
-- **All data is stored locally on your device only** – never uploaded to servers or cloud
-- Data is stored using device-level storage mechanisms that only your device can access
-- You can delete all data anytime in the App settings
+## 4. Third-Party Services
 
-### AI Analysis Processing
+The App may use third-party AI services for analysis. When you choose to use these services:
 
-- When you click "Start Analysis", local data is sent to our backend API for AI analysis
-- The backend API only calls AI models (GPT-4o, Claude, Gemini, etc.) to generate analysis results
-- **After analysis completes, data is NOT saved on servers** – only retained on your device
-
-### Logs & Diagnostics
-
-- We may collect crash logs and performance metrics for App improvement
-- These logs do NOT contain your personal input data
-
-## 3. Data Usage
-
-We use your data only to:
-
-- Generate your personalized personality analysis report
-- Improve App features and user experience
-- Fix technical issues and enhance stability
-
-## 4. Data Sharing
-
-- **We do NOT share your personal data with any third parties**
-- AI model providers (OpenAI, Anthropic, etc.) may process data per their privacy policies
-- We do NOT sell, rent, or trade your data
+- Your data is sent only to the AI service provider (OpenAI, Anthropic, Google, etc.)
+- Please review their privacy policies for how they handle data
+- We do not retain copies of data sent to third parties
 
 ## 5. Data Security
 
-- We use industry-standard security measures to protect your data
-- Local data is protected by your device's operating system security
-- Communication with backend APIs uses HTTPS encryption
+- Your device's operating system protects locally stored data
+- Communication with third-party services uses HTTPS encryption
+- We do not store, access, or monitor your personal information
 
 ## 6. Your Rights
 
-You have the right to:
+You have complete control over your data:
 
-- **Access**: View data we hold about you
-- **Modify**: Update or correct your information
-- **Delete**: Remove all your data anytime
-- **Export**: Export your analysis report
+- **Delete**: Remove all data from your device anytime
+- **Access**: All your data is stored locally on your device
+- **No Tracking**: We do not track or monitor your usage
 
-## 7. Data Retention
+## 7. Cookies & Analytics
 
-- **Local Data**: Under your control – delete anytime
-- **Server Data**: Not saved after analysis unless you manually save
-- **Log Data**: Automatically deleted after 30 days
+- We do not use cookies
+- We do not collect analytics or usage data
+- We do not track your behavior
 
 ## 8. Children's Privacy
 
-This App is not intended for children under 13. We do not knowingly collect children's data. If we discover we've collected a child's data, we will delete it immediately.
+This App is not intended for children under 13. We do not knowingly collect any data from children.
 
-## 9. Third-Party Services
+## 9. Policy Changes
 
-The App may use these third-party services:
+We may update this Privacy Policy occasionally. Continued use means you accept the updated policy.
 
-| Service | Purpose |
-|---------|---------|
-| OpenAI (GPT-4o) | AI Analysis |
-| Anthropic (Claude) | AI Analysis |
-| Google (Gemini) | AI Analysis |
-| DeepSeek | AI Analysis |
-| Kimi | AI Analysis |
-
-## 10. Policy Changes
-
-We may update this Privacy Policy occasionally. We'll notify you of significant changes through the App. Continued use means you accept the updated policy.
-
-## 11. Contact Us
+## 10. Contact Us
 
 For privacy questions, contact us via:
 
+- **Email**: zhaoningup@gmail.com
 - **GitHub Issues**: https://github.com/OwenZhao9/ai-personality-analyzer/issues
-- **Email**: support@example.com
 
 ---
 

@@ -184,7 +184,7 @@ title: Support
   </div>
 
   <div class="button-container">
-    <a href="mailto:support@example.com" class="email-button">Send us an Email</a>
+    <a href="mailto:zhaoningup@gmail.com" class="email-button">Send us an Email</a>
   </div>
 
   <div class="footer">
