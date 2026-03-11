@@ -22,3 +22,5 @@
 - [x] 用方案 A 实现长图报告分享（隐藏完整视图截图，不受屏幕高度限制）
 - [x] 删除预览弹窗左上角的「分享分析结果」标题文字
 - [x] 在「多模型一致确认」区域添加参与分析的模型名字标签
+- [ ] 对 app Web 预览的 6 个页面截图并用 iPhone 15 Pro 边框合成标准 iOS App Store 截图
+- [x] 在 GitHub Pages 上创建 Privacy Policy 和 Support 页面
