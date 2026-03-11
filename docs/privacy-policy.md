@@ -55,6 +55,10 @@ title: Privacy Policy
     margin-bottom: 12px;
   }
 
+  .content p:last-child {
+    margin-bottom: 0;
+  }
+
   .content strong {
     color: #00d4ff;
   }
