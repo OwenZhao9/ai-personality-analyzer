@@ -43,6 +43,7 @@ title: Support
   .button-container {
     text-align: center;
     margin-top: 32px;
+    margin-bottom: 24px;
   }
 
   .email-button {
@@ -69,6 +70,13 @@ title: Support
     transform: translateY(0);
   }
 
+  .disclaimer {
+    text-align: center;
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+
   @media (max-width: 640px) {
     .container {
       padding: 16px;
@@ -88,6 +96,10 @@ title: Support
       font-size: 14px;
       width: 100%;
     }
+
+    .disclaimer {
+      font-size: 13px;
+    }
   }
 </style>
 
@@ -98,5 +110,9 @@ title: Support
 
   <div class="button-container">
     <a href="mailto:zhaoningup@gmail.com" class="email-button">Send us an Email</a>
+  </div>
+
+  <div class="disclaimer">
+    <p>Disclaimer: This app is for entertainment purposes only and does not constitute professional psychological analysis or advice.</p>
   </div>
 </div>
