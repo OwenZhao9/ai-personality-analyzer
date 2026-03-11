@@ -1,41 +1,222 @@
-# AI人格分析
-
-**全球首款多模型联合人格分析系统**
-
-欢迎来到 AI人格分析 应用的官方支持网站。
-
-## 快速导航
-
-- **[隐私政策](./privacy-policy.md)** - 了解我们如何保护您的数据
-- **[技术支持](./support.md)** - 常见问题和故障排除
-
-## 关于应用
-
-AI人格分析 是一款创新的人格分析应用，整合了 25+ 顶级 AI 大模型（包括 GPT-4o、Claude 3.5、Gemini 1.5、DeepSeek、Kimi 等），为您生成专属的多维度人格分析报告。
-
-### 核心功能
-
-✨ **25+ 模型联合分析** - 全球主流 AI 模型同时参与，多角度交叉验证  
-📊 **多维度人格报告** - 包含 MBTI、星座、职业、兴趣等全面数据矩阵  
-⚡ **5 阶段透明分析** - 模型初始化 → 数据加载 → 并行推理 → 一致性校验 → 最终合成  
-🎨 **长图分享** - 一键生成专属报告长图，分享给朋友  
-🔒 **隐私优先** - 所有数据本地存储，不上传服务器
-
-## 下载应用
-
-- **iOS**：[App Store](https://apps.apple.com/app/id6760098352)
-- **Android**：[Google Play](https://play.google.com/store/apps/details?id=space.manus.ai.personality.analyzer)
-- **Web**：[在线体验](https://ai-personality-analyzer.example.com)
-
-## 获取帮助
-
-遇到问题？查看 [技术支持](./support.md) 页面或 [GitHub Issues](https://github.com/OwenZhao9/ai-personality-analyzer/issues)。
-
-## 联系我们
-
-- **GitHub**：https://github.com/OwenZhao9/ai-personality-analyzer
-- **邮件**：support@example.com
-
+---
+layout: default
+title: AI Personality Analyzer
 ---
 
-**免责声明**：本应用仅供娱乐用途，不构成任何心理学诊断或专业建议。
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-bottom: 24px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .feature {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .feature:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    background: rgba(30, 41, 59, 0.8);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .feature h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #00d4ff;
+  }
+
+  .feature p {
+    font-size: 14px;
+    color: #cbd5e1;
+  }
+
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .link-button {
+    display: block;
+    padding: 16px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    color: #00d4ff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .link-button:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.4);
+  }
+
+  .disclaimer {
+    background: rgba(239, 68, 68, 0.05);
+    border-left: 4px solid #ef4444;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+  }
+
+  .disclaimer p {
+    font-size: 13px;
+    color: #fca5a5;
+  }
+
+  .footer {
+    text-align: center;
+    padding-bottom: 40px;
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .footer a {
+    color: #00d4ff;
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 40px 20px 24px;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+    }
+
+    .hero p {
+      font-size: 14px;
+    }
+
+    .links {
+      grid-template-columns: 1fr;
+    }
+
+    .feature {
+      padding: 16px;
+    }
+
+    .feature h3 {
+      font-size: 15px;
+    }
+
+    .feature p {
+      font-size: 13px;
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="hero">
+    <h1>AI Personality Analyzer</h1>
+    <p>25+ AI Models United for Personality Analysis</p>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🤖</div>
+      <h3>Multi-Model Analysis</h3>
+      <p>25+ leading AI models (GPT-4o, Claude, Gemini, DeepSeek, Kimi) analyze your personality simultaneously</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📊</div>
+      <h3>Comprehensive Report</h3>
+      <p>Get a detailed personality report with MBTI, zodiac sign, and multi-dimensional data matrix</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">⚡</div>
+      <h3>5-Stage Analysis</h3>
+      <p>Transparent process: initialization → data loading → parallel inference → validation → synthesis</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🎨</div>
+      <h3>Share Your Results</h3>
+      <p>Generate and share your personality report as a beautiful long-form image</p>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <p>
+      ⚠️ <strong>Entertainment Purpose Only:</strong> This app is designed for fun and entertainment. It does not provide real psychological analysis or professional personality assessment. Results are generated by AI based on user input and should not be considered as actual personality analysis.
+    </p>
+  </div>
+
+  <div class="links">
+    <a href="./support" class="link-button">Support</a>
+    <a href="./privacy-policy" class="link-button">Privacy Policy</a>
+  </div>
+
+  <div class="footer">
+    <p>
+      <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub Repository</a>
+    </p>
+    <p style="margin-top: 12px;">
+      © 2026 AI Personality Analyzer. All rights reserved.
+    </p>
+  </div>
+</div>

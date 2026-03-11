@@ -1,105 +1,110 @@
-# 隐私政策
+---
+layout: default
+title: Privacy Policy
+---
 
-**最后更新时间：2026 年 3 月**
+# Privacy Policy
 
-## 概述
+**Last Updated: March 2026**
 
-欢迎使用「AI人格分析」（以下简称「本应用」）。我们尊重您的隐私，致力于保护您的个人信息。本隐私政策说明我们如何收集、使用、保护和处理您的数据。
+## Overview
 
-## 1. 数据收集
+Welcome to **AI Personality Analyzer** (the "App"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, protect, and handle your data.
 
-### 1.1 我们收集什么
+## 1. Data Collection
 
-本应用仅在您主动输入时收集以下信息：
+### What We Collect
 
-- **基本信息**：姓名、性别、出生日期
-- **个人描述**：职业、兴趣爱好、情感状态、MBTI 类型、当前困惑、自我介绍
+The App only collects information that you voluntarily provide:
 
-### 1.2 我们如何收集
+- **Basic Information**: Name, Gender, Birth Date
+- **Personal Details**: Occupation, Interests, Emotional Status, MBTI Type, Current Challenges, Self-Introduction
 
-所有数据通过用户界面表单直接输入，完全由您控制。
+### How We Collect
 
-## 2. 数据存储与处理
+All data is entered directly through the App's user interface and is completely under your control.
 
-### 2.1 本地存储
+## 2. Data Storage & Processing
 
-- **所有数据仅在您的设备本地存储**，不上传至任何服务器或云端
-- 数据使用 `AsyncStorage` 或本地文件系统存储，仅您的设备可访问
-- 您可以随时在应用设置中清除所有数据
+### Local Storage
 
-### 2.2 AI 分析处理
+- **All data is stored locally on your device only** – never uploaded to servers or cloud
+- Data is stored using device-level storage mechanisms that only your device can access
+- You can delete all data anytime in the App settings
 
-- 当您点击「开始分析」时，本地数据被发送至后端 API 进行 AI 分析
-- 后端 API 仅用于调用 AI 模型（GPT-4o、Claude、Gemini 等）生成分析结果
-- **分析完成后，数据不被保存在服务器上**，仅在您的设备上保留
+### AI Analysis Processing
 
-### 2.3 日志与诊断
+- When you click "Start Analysis", local data is sent to our backend API for AI analysis
+- The backend API only calls AI models (GPT-4o, Claude, Gemini, etc.) to generate analysis results
+- **After analysis completes, data is NOT saved on servers** – only retained on your device
 
-- 我们可能收集应用崩溃日志、性能指标等诊断信息，用于改进应用
-- 这些日志不包含您的个人输入数据
+### Logs & Diagnostics
 
-## 3. 数据使用
+- We may collect crash logs and performance metrics for App improvement
+- These logs do NOT contain your personal input data
 
-我们使用您的数据仅用于：
+## 3. Data Usage
 
-- 生成您的个性化人格分析报告
-- 改进应用功能和用户体验
-- 修复技术问题和提高应用稳定性
+We use your data only to:
 
-## 4. 数据共享
+- Generate your personalized personality analysis report
+- Improve App features and user experience
+- Fix technical issues and enhance stability
 
-- **我们不会与任何第三方共享您的个人数据**
-- AI 模型提供商（如 OpenAI、Anthropic）可能根据其隐私政策处理数据，请查阅相关服务条款
-- 我们不会出售、租赁或交易您的数据
+## 4. Data Sharing
 
-## 5. 数据安全
+- **We do NOT share your personal data with any third parties**
+- AI model providers (OpenAI, Anthropic, etc.) may process data per their privacy policies
+- We do NOT sell, rent, or trade your data
 
-- 我们采取行业标准的安全措施保护您的数据
-- 本地数据通过设备操作系统的安全机制保护
-- 与后端 API 的通信使用 HTTPS 加密传输
+## 5. Data Security
 
-## 6. 您的权利
+- We use industry-standard security measures to protect your data
+- Local data is protected by your device's operating system security
+- Communication with backend APIs uses HTTPS encryption
 
-您有权：
+## 6. Your Rights
 
-- **访问**：查看我们持有的关于您的数据
-- **修改**：更新或更正您的信息
-- **删除**：随时删除您的所有数据
-- **导出**：导出您的分析报告
+You have the right to:
 
-## 7. 数据保留
+- **Access**: View data we hold about you
+- **Modify**: Update or correct your information
+- **Delete**: Remove all your data anytime
+- **Export**: Export your analysis report
 
-- 本地数据：由您控制，可随时删除
-- 服务器数据：分析完成后不被保存，除非您主动保存
-- 日志数据：通常保留 30 天后自动删除
+## 7. Data Retention
 
-## 8. 儿童隐私
+- **Local Data**: Under your control – delete anytime
+- **Server Data**: Not saved after analysis unless you manually save
+- **Log Data**: Automatically deleted after 30 days
 
-本应用不针对 13 岁以下儿童。我们不会有意收集儿童的个人数据。如果我们发现收集了儿童数据，将立即删除。
+## 8. Children's Privacy
 
-## 9. 第三方服务
+This App is not intended for children under 13. We do not knowingly collect children's data. If we discover we've collected a child's data, we will delete it immediately.
 
-本应用可能使用以下第三方服务：
+## 9. Third-Party Services
 
-| 服务 | 用途 | 隐私政策 |
-|------|------|--------|
-| OpenAI (GPT-4o) | AI 人格分析 | https://openai.com/privacy |
-| Anthropic (Claude) | AI 人格分析 | https://www.anthropic.com/privacy |
-| Google (Gemini) | AI 人格分析 | https://policies.google.com/privacy |
-| DeepSeek | AI 人格分析 | https://www.deepseek.com/privacy |
-| Kimi | AI 人格分析 | https://kimi.moonshot.cn/privacy |
+The App may use these third-party services:
 
-## 10. 隐私政策变更
+| Service | Purpose |
+|---------|---------|
+| OpenAI (GPT-4o) | AI Analysis |
+| Anthropic (Claude) | AI Analysis |
+| Google (Gemini) | AI Analysis |
+| DeepSeek | AI Analysis |
+| Kimi | AI Analysis |
 
-我们可能不时更新本隐私政策。重大变更时，我们将通过应用通知您。继续使用本应用即表示您接受更新后的政策。
+## 10. Policy Changes
 
-## 11. 联系我们
+We may update this Privacy Policy occasionally. We'll notify you of significant changes through the App. Continued use means you accept the updated policy.
 
-如对本隐私政策有任何疑问，请通过以下方式联系我们：
+## 11. Contact Us
 
-- **GitHub Issues**：https://github.com/OwenZhao9/ai-personality-analyzer/issues
-- **电子邮件**：support@example.com（如有）
+For privacy questions, contact us via:
+
+- **GitHub Issues**: https://github.com/OwenZhao9/ai-personality-analyzer/issues
+- **Email**: support@example.com
 
 ---
 
-**免责声明**：本应用仅供娱乐用途，不构成任何心理学诊断或专业建议。分析结果基于用户输入信息和 AI 模型推理，可能存在偏差。
+**Disclaimer**: This App is for entertainment purposes only and does not constitute professional psychological analysis or advice.

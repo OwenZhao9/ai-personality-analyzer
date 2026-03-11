@@ -1,204 +1,199 @@
-# 技术支持
-
-**欢迎来到 AI人格分析 支持中心**
-
-## 常见问题
-
-### Q1：应用如何工作？
-
-应用通过以下步骤生成您的人格分析报告：
-
-1. **信息输入**：您在应用中填写基本信息（姓名、性别、出生日期等）和个人描述
-2. **模型初始化**：系统初始化 25+ 个 AI 大模型
-3. **并行分析**：所有模型同时对您的信息进行分析
-4. **一致性校验**：验证各模型的分析结果是否一致
-5. **报告生成**：生成最终的多模型联合人格分析报告
-
-### Q2：我的数据会被保存吗？
-
-**不会被保存在服务器上。** 
-
-- 您的数据仅在您的设备本地存储
-- 分析时数据被发送至后端 API 调用 AI 模型，分析完成后不被服务器保存
-- 您可以随时在应用中删除所有本地数据
-
-详见 [隐私政策](./privacy-policy.md)
-
-### Q3：为什么分析需要时间？
-
-分析涉及以下步骤：
-
-- **模型初始化**：加载 25+ 个 AI 模型（约 2-3 秒）
-- **并行推理**：所有模型同时分析您的信息（约 5-10 秒）
-- **结果合成**：整合所有模型的输出（约 1-2 秒）
-
-总耗时通常为 **10-20 秒**，具体时间取决于网络速度和服务器负载。
-
-### Q4：分析结果准确吗？
-
-分析结果基于：
-
-- **用户输入信息**：您提供的姓名、职业、兴趣等数据
-- **AI 模型推理**：25+ 个顶级 AI 模型的联合分析
-- **多模型一致性**：只有所有模型都一致确认的结论才会显示
-
-**重要提示**：本应用仅供娱乐用途，不构成任何心理学诊断或专业建议。分析结果可能存在偏差，请勿过度依赖。
-
-### Q5：如何分享我的报告？
-
-1. 完成分析后，进入「人格报告」页面
-2. 点击「生成长图并分享」按钮
-3. 预览长图后，选择保存至相册或分享给朋友
-4. 长图包含您的完整人格分析数据
-
-### Q6：支持哪些语言？
-
-当前版本支持 **中文**。未来计划支持英文、日文等语言。
-
-### Q7：应用是否需要网络连接？
-
-**是的，需要网络连接** 进行以下操作：
-
-- 调用 AI 模型进行分析（必需）
-- 生成报告和分享（必需）
-
-本地数据存储不需要网络。
-
-### Q8：应用支持哪些设备？
-
-- **iOS**：iOS 14.0 及以上（iPhone 6s 及更新）
-- **Android**：Android 5.0 及以上
-- **Web**：支持现代浏览器（Chrome、Safari、Firefox 等）
-
-### Q9：我的 MBTI 类型不准确怎么办？
-
-MBTI 类型由您在应用中选择，不由 AI 自动判断。如果您对自己的类型有疑问，可以：
-
-1. 访问官方 MBTI 网站进行正式测试
-2. 在应用中修改您的 MBTI 类型，重新生成报告
-
-### Q10：如何删除我的数据？
-
-**本地数据**：在应用设置中选择「清除所有数据」
-
-**服务器数据**：由于分析完成后不被服务器保存，无需额外删除
-
-如需彻底删除账户相关信息，请联系支持团队。
-
+---
+layout: default
+title: Support
 ---
 
-## 技术问题
+# Support
 
-### 应用崩溃或无响应
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-**解决方案**：
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
 
-1. 强制关闭应用并重新打开
-2. 清除应用缓存（设置 → 应用 → AI人格分析 → 存储 → 清除缓存）
-3. 更新应用至最新版本
-4. 重启设备
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-### 分析卡住或超时
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 40px;
+  }
 
-**可能原因**：
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-- 网络连接不稳定
-- AI 服务器暂时不可用
-- 输入信息过长导致处理时间过长
+  .header p {
+    font-size: 16px;
+    color: #94a3b8;
+  }
 
-**解决方案**：
+  .content {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+  }
 
-1. 检查网络连接
-2. 等待 30 秒后重试
-3. 简化输入信息，减少字数
-4. 如问题持续，请联系支持
+  .content h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #00d4ff;
+  }
 
-### 无法保存或分享报告
+  .content p {
+    font-size: 15px;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
 
-**可能原因**：
+  .disclaimer {
+    background: rgba(239, 68, 68, 0.05);
+    border-left: 4px solid #ef4444;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
 
-- 设备存储空间不足
-- 相册权限未授予
-- 网络连接中断
+  .disclaimer p {
+    font-size: 14px;
+    color: #fca5a5;
+  }
 
-**解决方案**：
+  .button-container {
+    text-align: center;
+    margin-top: 32px;
+  }
 
-1. 检查设备存储空间（至少需要 100MB）
-2. 在应用设置中授予相册/存储权限
-3. 检查网络连接，重试分享
+  .email-button {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    color: #0f172a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  }
 
-### 报告内容显示不完整
+  .email-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+  }
 
-**解决方案**：
+  .email-button:active {
+    transform: translateY(0);
+  }
 
-1. 刷新页面或重新打开应用
-2. 检查设备屏幕尺寸是否支持（推荐 iPhone 6 及以上）
-3. 更新应用至最新版本
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    font-size: 13px;
+    color: #64748b;
+  }
 
----
+  .footer a {
+    color: #00d4ff;
+    text-decoration: none;
+  }
 
-## 联系支持
+  .footer a:hover {
+    text-decoration: underline;
+  }
 
-如果上述常见问题未能解决您的问题，请通过以下方式联系我们：
+  @media (max-width: 640px) {
+    .container {
+      padding: 16px;
+    }
 
-### GitHub Issues（推荐）
+    .header {
+      padding-top: 24px;
+      margin-bottom: 24px;
+    }
 
-在 GitHub 仓库中提交 Issue：
+    .header h1 {
+      font-size: 24px;
+    }
 
-**仓库地址**：https://github.com/OwenZhao9/ai-personality-analyzer
+    .content {
+      padding: 20px 16px;
+    }
 
-**步骤**：
-1. 点击 「Issues」标签
-2. 点击 「New Issue」
-3. 选择问题类型（Bug Report / Feature Request / Question）
-4. 详细描述您的问题和设备信息
-5. 提交 Issue
+    .content h2 {
+      font-size: 18px;
+    }
 
-### 邮件支持
+    .content p {
+      font-size: 14px;
+    }
 
-如需直接邮件支持，请发送至：**support@example.com**
+    .email-button {
+      padding: 12px 24px;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+</style>
 
-**请提供以下信息**：
+<div class="container">
+  <div class="header">
+    <h1>Support</h1>
+    <p>We're here to help</p>
+  </div>
 
-- 应用版本号
-- 设备型号和操作系统版本
-- 问题描述和重现步骤
-- 错误日志（如有）
-- 截图或视频（如有）
+  <div class="content">
+    <h2>About This App</h2>
+    <p>
+      <strong>AI Personality Analyzer</strong> is an entertainment app that combines input information with AI models to generate personality analysis reports.
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>Important Disclaimer:</strong> This app is designed for entertainment purposes only. It does not provide real psychological analysis or professional personality assessment. The results are generated based on user input and AI model inference, and should not be considered as actual personality analysis or professional advice.
+    </p>
+    
+    <div class="disclaimer">
+      <p>
+        ⚠️ <strong>Entertainment Only:</strong> This app generates fictional personality reports for fun. It is not a substitute for professional psychological evaluation or therapy.
+      </p>
+    </div>
+  </div>
 
----
+  <div class="button-container">
+    <a href="mailto:support@example.com" class="email-button">Send us an Email</a>
+  </div>
 
-## 反馈与建议
-
-我们欢迎您的反馈和建议，帮助我们改进应用！
-
-- **功能建议**：在 GitHub Issues 中提交 Feature Request
-- **用户体验反馈**：邮件至 support@example.com
-- **bug 报告**：在 GitHub Issues 中提交 Bug Report
-
----
-
-## 应用更新
-
-### 获取最新版本
-
-- **iOS**：在 App Store 中搜索「AI人格分析」，点击「更新」
-- **Android**：在 Google Play 中搜索「AI人格分析」，点击「更新」
-- **Web**：清除浏览器缓存后刷新页面
-
-### 版本历史
-
-| 版本 | 发布日期 | 主要更新 |
-|------|---------|--------|
-| 1.0.0 | 2026-03-11 | 首次发布，包含 25+ 模型联合分析、多维度人格报告、长图分享等功能 |
-
----
-
-## 法律与条款
-
-- [隐私政策](./privacy-policy.md)
-- [使用条款](./terms.md)（如有）
-
----
-
-**感谢您使用 AI人格分析！** 如有任何问题，欢迎随时联系我们。
+  <div class="footer">
+    <p>
+      <a href="./privacy-policy">Privacy Policy</a> • 
+      <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a>
+    </p>
+    <p style="margin-top: 12px;">
+      © 2026 AI Personality Analyzer. All rights reserved.
+    </p>
+  </div>
+</div>
