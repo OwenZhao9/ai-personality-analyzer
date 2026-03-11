@@ -110,18 +110,11 @@ title: Privacy Policy
   </div>
 
   <div class="content">
-    <p>
-      <strong>We do NOT collect any information.</strong>
-    </p>
-    <p>
-      The App does not collect, store, or transmit any personal data to our servers. All information you enter is processed locally on your device only.
-    </p>
+    <p><strong>We do NOT collect any information.</strong></p>
+    <p>The App does not collect, store, or transmit any personal data to our servers. All information you enter is processed locally on your device only.</p>
   </div>
 
   <div class="footer">
-    <p>
-      <a href="./support">Support</a> • 
-      <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a>
-    </p>
+    <p><a href="./support">Support</a> • <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a></p>
   </div>
 </div>

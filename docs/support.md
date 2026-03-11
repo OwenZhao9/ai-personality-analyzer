@@ -141,9 +141,7 @@ title: Support
   </div>
 
   <div class="content">
-    <p>
-      <strong>Disclaimer:</strong> This app is for entertainment purposes only and does not constitute professional psychological analysis or advice.
-    </p>
+    <p><strong>Disclaimer:</strong> This app is for entertainment purposes only and does not constitute professional psychological analysis or advice.</p>
   </div>
 
   <div class="button-container">
@@ -151,9 +149,6 @@ title: Support
   </div>
 
   <div class="footer">
-    <p>
-      <a href="./privacy-policy">Privacy Policy</a> • 
-      <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a>
-    </p>
+    <p><a href="./privacy-policy">Privacy Policy</a> • <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a></p>
   </div>
 </div>
