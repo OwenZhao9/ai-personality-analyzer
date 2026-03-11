@@ -63,23 +63,6 @@ title: Privacy Policy
     color: #00d4ff;
   }
 
-  .footer {
-    text-align: center;
-    margin-top: 40px;
-    padding-bottom: 40px;
-    font-size: 13px;
-    color: #64748b;
-  }
-
-  .footer a {
-    color: #00d4ff;
-    text-decoration: none;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-  }
-
   @media (max-width: 640px) {
     .container {
       padding: 16px;
@@ -112,9 +95,5 @@ title: Privacy Policy
   <div class="content">
     <p><strong>We do NOT collect any information.</strong></p>
     <p>The App does not collect, store, or transmit any personal data to our servers. All information you enter is processed locally on your device only.</p>
-  </div>
-
-  <div class="footer">
-    <p><a href="./support">Support</a> • <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a></p>
   </div>
 </div>

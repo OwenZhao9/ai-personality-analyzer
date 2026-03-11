@@ -40,25 +40,6 @@ title: Support
     background-clip: text;
   }
 
-  .content {
-    background: rgba(30, 41, 59, 0.6);
-    border: 1px solid rgba(0, 212, 255, 0.1);
-    border-radius: 16px;
-    padding: 32px 24px;
-    margin-bottom: 24px;
-    backdrop-filter: blur(10px);
-  }
-
-  .content p {
-    font-size: 15px;
-    color: #cbd5e1;
-    margin-bottom: 12px;
-  }
-
-  .content p:last-child {
-    margin-bottom: 0;
-  }
-
   .button-container {
     text-align: center;
     margin-top: 32px;
@@ -88,23 +69,6 @@ title: Support
     transform: translateY(0);
   }
 
-  .footer {
-    text-align: center;
-    margin-top: 40px;
-    padding-bottom: 40px;
-    font-size: 13px;
-    color: #64748b;
-  }
-
-  .footer a {
-    color: #00d4ff;
-    text-decoration: none;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-  }
-
   @media (max-width: 640px) {
     .container {
       padding: 16px;
@@ -117,14 +81,6 @@ title: Support
 
     .header h1 {
       font-size: 24px;
-    }
-
-    .content {
-      padding: 20px 16px;
-    }
-
-    .content p {
-      font-size: 14px;
     }
 
     .email-button {
@@ -140,15 +96,7 @@ title: Support
     <h1>Support</h1>
   </div>
 
-  <div class="content">
-    <p><strong>Disclaimer:</strong> This app is for entertainment purposes only and does not constitute professional psychological analysis or advice.</p>
-  </div>
-
   <div class="button-container">
     <a href="mailto:zhaoningup@gmail.com" class="email-button">Send us an Email</a>
-  </div>
-
-  <div class="footer">
-    <p><a href="./privacy-policy">Privacy Policy</a> • <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a></p>
   </div>
 </div>
