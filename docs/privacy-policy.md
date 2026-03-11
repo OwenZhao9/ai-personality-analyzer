@@ -3,77 +3,121 @@ layout: default
 title: Privacy Policy
 ---
 
-# Privacy Policy
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-**Last Updated: March 2026**
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
 
-## Overview
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-Welcome to **AI Personality Analyzer** (the "App"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we handle your data.
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 40px;
+  }
 
-## 1. Data Collection
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-**We do NOT collect any information.**
+  .content {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+  }
 
-The App does not collect, store, or transmit any personal data to our servers. All information you enter is processed locally on your device only.
+  .content p {
+    font-size: 15px;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
 
-## 2. Local Data Storage
+  .content strong {
+    color: #00d4ff;
+  }
 
-- **All data remains on your device** – nothing is uploaded to servers or cloud storage
-- Data is stored using your device's local storage mechanisms
-- You have full control over your data and can delete it anytime
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    font-size: 13px;
+    color: #64748b;
+  }
 
-## 3. Data Processing
+  .footer a {
+    color: #00d4ff;
+    text-decoration: none;
+  }
 
-When you use the App's analysis features:
+  .footer a:hover {
+    text-decoration: underline;
+  }
 
-- Data is processed locally on your device
-- No personal information is sent to external servers
-- Analysis results are generated and stored only on your device
+  @media (max-width: 640px) {
+    .container {
+      padding: 16px;
+    }
 
-## 4. Third-Party Services
+    .header {
+      padding-top: 24px;
+      margin-bottom: 24px;
+    }
 
-The App may use third-party AI services for analysis. When you choose to use these services:
+    .header h1 {
+      font-size: 24px;
+    }
 
-- Your data is sent only to the AI service provider (OpenAI, Anthropic, Google, etc.)
-- Please review their privacy policies for how they handle data
-- We do not retain copies of data sent to third parties
+    .content {
+      padding: 20px 16px;
+    }
 
-## 5. Data Security
+    .content p {
+      font-size: 14px;
+    }
+  }
+</style>
 
-- Your device's operating system protects locally stored data
-- Communication with third-party services uses HTTPS encryption
-- We do not store, access, or monitor your personal information
+<div class="container">
+  <div class="header">
+    <h1>Privacy Policy</h1>
+  </div>
 
-## 6. Your Rights
+  <div class="content">
+    <p>
+      <strong>We do NOT collect any information.</strong>
+    </p>
+    <p>
+      The App does not collect, store, or transmit any personal data to our servers. All information you enter is processed locally on your device only.
+    </p>
+  </div>
 
-You have complete control over your data:
-
-- **Delete**: Remove all data from your device anytime
-- **Access**: All your data is stored locally on your device
-- **No Tracking**: We do not track or monitor your usage
-
-## 7. Cookies & Analytics
-
-- We do not use cookies
-- We do not collect analytics or usage data
-- We do not track your behavior
-
-## 8. Children's Privacy
-
-This App is not intended for children under 13. We do not knowingly collect any data from children.
-
-## 9. Policy Changes
-
-We may update this Privacy Policy occasionally. Continued use means you accept the updated policy.
-
-## 10. Contact Us
-
-For privacy questions, contact us via:
-
-- **Email**: zhaoningup@gmail.com
-- **GitHub Issues**: https://github.com/OwenZhao9/ai-personality-analyzer/issues
-
----
-
-**Disclaimer**: This App is for entertainment purposes only and does not constitute professional psychological analysis or advice.
+  <div class="footer">
+    <p>
+      <a href="./support">Support</a> • 
+      <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a>
+    </p>
+  </div>
+</div>

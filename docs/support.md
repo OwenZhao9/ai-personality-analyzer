@@ -3,8 +3,6 @@ layout: default
 title: Support
 ---
 
-# Support
-
 <style>
   * {
     margin: 0;
@@ -42,11 +40,6 @@ title: Support
     background-clip: text;
   }
 
-  .header p {
-    font-size: 16px;
-    color: #94a3b8;
-  }
-
   .content {
     background: rgba(30, 41, 59, 0.6);
     border: 1px solid rgba(0, 212, 255, 0.1);
@@ -56,29 +49,14 @@ title: Support
     backdrop-filter: blur(10px);
   }
 
-  .content h2 {
-    font-size: 20px;
-    margin-bottom: 16px;
-    color: #00d4ff;
-  }
-
   .content p {
     font-size: 15px;
     color: #cbd5e1;
     margin-bottom: 12px;
   }
 
-  .disclaimer {
-    background: rgba(239, 68, 68, 0.05);
-    border-left: 4px solid #ef4444;
-    padding: 16px;
-    border-radius: 8px;
-    margin-top: 20px;
-  }
-
-  .disclaimer p {
-    font-size: 14px;
-    color: #fca5a5;
+  .content p:last-child {
+    margin-bottom: 0;
   }
 
   .button-container {
@@ -145,10 +123,6 @@ title: Support
       padding: 20px 16px;
     }
 
-    .content h2 {
-      font-size: 18px;
-    }
-
     .content p {
       font-size: 14px;
     }
@@ -164,23 +138,12 @@ title: Support
 <div class="container">
   <div class="header">
     <h1>Support</h1>
-    <p>We're here to help</p>
   </div>
 
   <div class="content">
-    <h2>About This App</h2>
     <p>
-      <strong>AI Personality Analyzer</strong> is an entertainment app that combines input information with AI models to generate personality analysis reports.
+      <strong>Disclaimer:</strong> This app is for entertainment purposes only and does not constitute professional psychological analysis or advice.
     </p>
-    <p style="margin-top: 12px;">
-      <strong>Important Disclaimer:</strong> This app is designed for entertainment purposes only. It does not provide real psychological analysis or professional personality assessment. The results are generated based on user input and AI model inference, and should not be considered as actual personality analysis or professional advice.
-    </p>
-    
-    <div class="disclaimer">
-      <p>
-        ⚠️ <strong>Entertainment Only:</strong> This app generates fictional personality reports for fun. It is not a substitute for professional psychological evaluation or therapy.
-      </p>
-    </div>
   </div>
 
   <div class="button-container">
@@ -191,9 +154,6 @@ title: Support
     <p>
       <a href="./privacy-policy">Privacy Policy</a> • 
       <a href="https://github.com/OwenZhao9/ai-personality-analyzer">GitHub</a>
-    </p>
-    <p style="margin-top: 12px;">
-      © 2026 AI Personality Analyzer. All rights reserved.
     </p>
   </div>
 </div>
